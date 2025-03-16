@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descoberta</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 20%;
+        }
+        .hidden {
+            display: none;
+            color: red;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vamos fazer uma pausa! Quero que cada um de vocês dê um
+palpite sobre o que estamos descobrindo.</h1>
+    <button onclick="goToNextPage()">Continuar</button>
+  
+
+    <script>
+        function goToNextPage() {
+            window.location.href = "cronometro.html";
+        }
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+    </script>
+</body>
+</html>
