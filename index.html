@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descoberta</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 20%;
+        }
+        .hidden {
+            display: none;
+            color: red;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Você está preparado para o que vai descobrir?</h1>
+    <button onclick="goToNextPage()">Sim</button>
+    <button onclick="showMessage()">Não</button>
+    <p id="message" class="hidden">Você não tem essa opção</p>
+
+    <script>
+        function goToNextPage() {
+            window.location.href = "termo.html";
+        }
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+        }
+    </script>
+</body>
+</html>
+

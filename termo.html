@@ -1,0 +1,75 @@
+
+<!-- Página do jogo Termo -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Termo</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 10%;
+        }
+        input {
+            font-size: 18px;
+            padding: 5px;
+            text-transform: uppercase;
+        }
+        button {
+            font-size: 18px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        .attempts {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adivinhe a palavra (7 letras)</h1>
+    <input type="text" id="guess" maxlength="7">
+    <button onclick="checkWord()">Enviar</button>
+    <div class="attempts" id="attempts"></div>
+
+    <script>
+        const correctWord = "OUTUBRO";
+        const attemptsDiv = document.getElementById("attempts");
+
+        function checkWord() {
+            let guess = document.getElementById("guess").value.toUpperCase();
+            let feedback = "";
+            
+            if (guess.length !== 7) {
+                alert("A palavra deve ter 7 letras!");
+                return;
+            }
+            
+            if (guess === correctWord) {
+                window.location.href = "meio.html";
+                return;
+            }
+            
+            for (let i = 0; i < 7; i++) {
+                if (guess[i] === correctWord[i]) {
+                    feedback += `<span style='color:green;'>${guess[i]}</span> `;
+                } else if (correctWord.includes(guess[i])) {
+                    feedback += `<span style='color:orange;'>${guess[i]}</span> `;
+                } else {
+                    feedback += `<span style='color:gray;'>${guess[i]}</span> `;
+                }
+            }
+            
+            const attempt = document.createElement("p");
+            attempt.innerHTML = feedback;
+            attemptsDiv.appendChild(attempt);
+        }
+    </script>
+</body>
+</html>
+

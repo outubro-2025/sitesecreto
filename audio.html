@@ -1,0 +1,50 @@
+<!-- Página de áudio -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 20%;
+        }
+        #nextPageButton {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Ouça com atenção</h1>
+    <audio controls autoplay id="audio">
+        <source src="audio.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    <p>Se o áudio não tocar automaticamente, clique no botão de play.</p>
+    <button id="nextPageButton" onclick="goToCountdown()">Continuar</button>
+    
+    <script>
+        document.getElementById("audio").addEventListener("ended", function() {
+            document.getElementById("nextPageButton").style.display = "block";
+        });
+        
+        function goToCountdown() {
+            window.location.href = "cronometro.html";
+        }
+    </script>
+</body>
+</html>
